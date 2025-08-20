@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manual Simulation - Attendance Buddy</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body { background: #f3f4f6; }
+    .result { margin-top: 1rem; padding: 1rem; background: #f1f5f9; border-left: 4px solid #2563eb; border-radius: 8px; }
+
+    label { font-weight: bold; 
+      margin-top: 1rem; 
+      margin-bottom: 0.5rem; 
+      display: block; 
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="index.html"><strong>Attendance Buddy</strong></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-3">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
+        <li class="nav-item"><a class="nav-link" href="Goal.html">Attendance Target</a></li>
+        <li class="nav-item"><a class="nav-link" href="safe.html">Attendance Safe Zone</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  <!-- Manual Form -->
+  <div class="container my-5">
+    <div class="row justify-content-center">
+      <div class="col-md-8 col-lg-6">
+        <div style="background-color: rgba(244, 240, 234, 0.795);" class="card shadow p-4">
+          <h2 class="mb-3">Attendance Predictor</h2>
+          <label>Total No. of Classes Conducted:</label>
+          <input type="number" class="form-control mb-2" id="manualTotal" >
+          <label>Total No. of Classes Attended:</label>
+          <input type="number" class="form-control mb-2" id="manualAttended" >
+          <label>No. of classes that will be conducted:</label>
+          <input type="number" class="form-control mb-2" id="manualFuture">
+          <label>No of classes you will attend:</label>
+          <input type="number" class="form-control mb-3" id="manualAttend" >
+          <div class="d-flex justify-content-between">
+            <button class="btn btn-primary" onclick="calculateManual()">Calculate</button>
+            <button class="btn btn-danger" onclick="resetForm()">Reset</button>
+          </div>
+          <div id="manualResult" class="result"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function calculateManual() {
+      let total = parseInt(document.getElementById('manualTotal').value);
+      let attended = parseInt(document.getElementById('manualAttended').value);
+      let future = parseInt(document.getElementById('manualFuture').value);
+      let willAttend = parseInt(document.getElementById('manualAttend').value);
+
+      if (isNaN(total) || isNaN(attended) || isNaN(future) || isNaN(willAttend)) {
+        document.getElementById('manualResult').innerHTML = "⚠️ Please fill all fields!";
+        return;
+      }
+
+      let newTotal = total + future;
+      let newAttended = attended + willAttend;
+      let currentPercent = ((attended / total) * 100).toFixed(2);
+      let percent = ((newAttended / newTotal) * 100).toFixed(2);
+
+      document.getElementById('manualResult').innerHTML =
+        `Your Current Attendance Percentage: <b>${currentPercent}%</b><br><br>` +
+        `If you attend <b>${willAttend}</b> out of <b>${future}</b> upcoming classes,<br>` +
+        `Your final Attendance Percentage will be: <b>${percent}%</b>.<br><br>` +
+        'Your stats will be as:<br>' +
+        `Total No. of Classes Conducted: <b>${newTotal}</b><br>` +
+        `Total No. of Classes Attended: <b>${newAttended}</b>`;
+    }
+
+    function resetForm() {
+      document.getElementById('manualTotal').value = "";
+      document.getElementById('manualAttended').value = "";
+      document.getElementById('manualFuture').value = "";
+      document.getElementById('manualAttend').value = "";
+      document.getElementById('manualResult').innerHTML = "";
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

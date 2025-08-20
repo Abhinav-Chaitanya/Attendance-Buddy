@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>About | Attendance Buddy</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-size: 1rem; /* base font size */
+        }
+
+        .about-section {
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .about-section h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .tagline {
+            font-size: 1.25rem;
+            color: #555;
+            margin-bottom: 40px;
+        }
+
+        .features-list {
+            text-align: left;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            padding-left: 20px;
+        }
+
+        .features-list li {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .contact {
+            font-size: 1rem;
+            color: #333;
+            margin-top: 40px;
+        }
+
+        footer {
+            background-color: #343a40;
+            color: #fff;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 60px;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .about-section h1 {
+                font-size: 2rem;
+            }
+
+            .tagline {
+                font-size: 1.1rem;
+            }
+
+            .features-list li {
+                font-size: 1rem;
+            }
+
+            .about-section p,
+            .contact {
+                font-size: 1rem;
+            }
+
+            .features-list {
+                padding-left: 15px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .about-section h1 {
+                font-size: 1.75rem;
+            }
+
+            .tagline {
+                font-size: 1rem;
+            }
+
+            .features-list li {
+                font-size: 0.95rem;
+            }
+
+            .about-section p,
+            .contact {
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <strong>Attendance Buddy</strong>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html" style="font-size: 16px;">Home</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- About Section -->
+    <div class="about-section">
+        <h1>Attendance Buddy</h1>
+        <p class="tagline">Your friendly assistant for tracking attendance easily.</p>
+
+        <div class="container">
+            <p style="font-size: 20px;" class="mb-5">
+                <strong>Attendance Buddy</strong> helps students and professionals manage and track attendance efficiently.
+                Get insights, projections, and simulations to stay on top of your attendance goals without any stress.
+            </p>
+
+            <h4 class="mb-3">Key Features:</h4>
+            <ul class="features-list">
+                <li>Easy access and gives accurate results</li>
+                <li>Predicts future attendance based on your inputs</li>
+                <li>Tells you how many classes you need to reach your target percentage</li>
+                <li>Safe zone alerts to avoid falling below required attendance</li>
+                <li>Mobile-friendly and simple interface</li>
+            </ul>
+
+            <div class="contact">
+                <p><strong>Have questions or issues?</strong> Reach out to us at: </p>
+                <p><a href="mailto:pvac2005@gmail.com">pvac2005@gmail.com</a></p>
+                <p class="mt-4 text-muted">Created by <strong>Abhinav Chaitanya</strong></p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            &copy; 2025 Attendance Buddy. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
